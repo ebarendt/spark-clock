@@ -1,0 +1,13 @@
+Connected: <%= @core_info["connected"] %><br/>
+Last heard: <%= time_format(@core_info["last_heard"]) %><br/>
+Temperature: <%= @temperature %> F<br/>
+<br/>
+<%= form_tag sparks_path, method: :patch do %>
+  <%= hidden_field_tag :status, 'wakeUp' %>
+  <%= submit_tag 'Wake Up' %>
+<% end %>
+
+<%= form_tag sparks_path, method: :patch do %>
+  <%= hidden_field_tag :status, 'sleep' %>
+  <%= submit_tag 'Sleep' %>
+<% end %>
