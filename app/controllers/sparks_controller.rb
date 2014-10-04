@@ -4,6 +4,8 @@ class SparksController < ApplicationController
   def show
     response = @spark.query("temperature")
     @temperature = sprintf("%.2f", response["result"])
+    response = @spark.query("currentStatus")
+    @current_color = response["result"]
     @core_info = response["coreInfo"]
   end
 
