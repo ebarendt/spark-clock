@@ -44,6 +44,7 @@ namespace :puma do
   task :make_dirs do
     on roles(:app) do
       execute "mkdir #{shared_path}/tmp/sockets -p"
+      execute "mkdir #{shared_path}/tmp/log -p"
       execute "mkdir #{shared_path}/tmp/pids -p"
     end
   end
