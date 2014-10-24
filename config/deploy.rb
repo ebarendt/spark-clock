@@ -10,8 +10,6 @@ set :puma_threads, [4, 16]
 set :puma_workers, 0
 set :user, 'deploy'
 
-set :linked_files, %w{.env}
-
 # Don't change these unless you know what you're doing
 set :pty,             true
 set :use_sudo,        false
@@ -37,14 +35,15 @@ set :puma_init_active_record, false  # Change to true if using ActiveRecord
 
 ## Linked Files & Directories (Default None):
 # set :linked_files, %w{config/database.yml}
-# set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_files, %w{.env}
+set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
   task :make_dirs do
     on roles(:app) do
+      execute "mkdir #{shared_path}/log -p"
       execute "mkdir #{shared_path}/tmp/sockets -p"
-      execute "mkdir #{shared_path}/tmp/log -p"
       execute "mkdir #{shared_path}/tmp/pids -p"
     end
   end
