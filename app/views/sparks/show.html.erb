@@ -2,6 +2,7 @@
   Connected: <%= @core_info["connected"] %><br/>
   Last heard: <%= time_format(@core_info["last_heard"]) %><br/>
   Temperature: <%= @temperature %> F<br/>
+  Color: <span class="color <%= @color %>"></span><br/>
   <br/>
   <%= form_tag sparks_path, method: :patch do %>
     <%= hidden_field_tag :status, 'wakeUp' %>

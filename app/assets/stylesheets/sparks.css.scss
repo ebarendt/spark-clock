@@ -1,7 +1,15 @@
-// Place all the styles related to the sparks controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .sparks.show {
-  margin: 10px 0px;
+  padding-top: 10px;
+
+  .color {
+    padding: 0px 25px;
+
+    &.green {
+      background-color: #00FF00;
+    }
+
+    &.yellow {
+      background-color: #DEAA00;
+    }
+  }
 }
