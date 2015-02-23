@@ -4,6 +4,7 @@ lock '3.2.1'
 set :application, 'clock'
 set :repo_url, 'git@github.com:ebarendt/spark-clock.git'
 set :branch, :master
+set :rbenv_type, :system
 set :rbenv_ruby, '2.1.5'
 
 set :puma_threads, [4, 16]
