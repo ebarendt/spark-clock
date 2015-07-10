@@ -17,6 +17,10 @@
 
 server 'lightning.barendt.org', user: 'deploy', roles: %w{web app}
 
+set :default_env, {
+  'PUMA_WORKERS' => '1'
+}
+
 
 # Custom SSH Options
 # ==================
