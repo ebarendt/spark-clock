@@ -1,9 +1,9 @@
 class Spark
   attr_reader :message
 
-  def initialize(device)
-    @token = ENV.fetch("SPARK_TOKEN")
+  def initialize(device, token)
     @device = device
+    @token = token
   end
 
   def command(command)
@@ -18,6 +18,7 @@ class Spark
   end
 
   private
+
   attr_reader :token, :device
 
   def uri(command_or_query)

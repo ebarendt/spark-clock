@@ -1,27 +1,25 @@
 class SparksController < ApplicationController
-  before_action :setup_device
+  before_action :setup_devices
 
-  def show
-    response = @spark.query("temperature")
-    @temperature = sprintf("%.2f", response["result"])
-    response = @spark.query("color")
-    @color = response["result"]
-    @core_info = response["coreInfo"]
+  def index
   end
 
   def update
-    if @spark.command(params[:status])
-      redirect_to sparks_path, notice: "Changed to #{params[:status]}"
+    @light = @lights.find { |light| light.device_id == params[:id] }
+    if @light.update(params[:status])
+      redirect_to sparks_path, notice: "#{@light.name} changed to #{params[:status]}"
     else
-      flash.now[:error] = spark.message
-      render 'show'
+      flash.now[:error] = @light.api.message
+      render 'index'
     end
   end
 
   private
 
-  def setup_device
-    device = ENV.fetch("CLOCK")
-    @spark = Spark.new(device)
+  def setup_devices
+    @lights = [
+      Light.new(name: 'Emma', device_id: ENV['EMMA'], token: ENV['SPARK_TOKEN']),
+      Light.new(name: 'Abby', device_id: ENV['ABBY'], token: ENV['SPARK_TOKEN'])
+    ]
   end
 end

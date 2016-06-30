@@ -1,0 +1,14 @@
+<div class="sparks show">
+  <h3><%= light.name %></h3>
+  Color: <span class="color <%= light.color %>"></span><br/>
+  <br/>
+  <%= form_tag spark_path(light.device_id), method: :patch do %>
+    <%= hidden_field_tag :status, 'wakeUp' %>
+    <%= submit_tag 'Wake Up', class: 'btn btn-large' %>
+  <% end %>
+
+  <%= form_tag spark_path(light.device_id), method: :patch do %>
+    <%= hidden_field_tag :status, 'sleep' %>
+    <%= submit_tag 'Sleep', class: 'btn btn-large' %>
+  <% end %>
+</div>
