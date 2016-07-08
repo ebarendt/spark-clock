@@ -18,8 +18,8 @@ class SparksController < ApplicationController
 
   def setup_devices
     @lights = [
-      Light.new(name: 'Emma', device_id: ENV['EMMA'], token: ENV['SPARK_TOKEN']),
-      Light.new(name: 'Abby', device_id: ENV['ABBY'], token: ENV['SPARK_TOKEN'])
+      Light.new(name: 'Abby', device_id: ENV['ABBY'], token: ENV['SPARK_TOKEN']),
+      Light.new(name: 'Emma', device_id: ENV['EMMA'], token: ENV['SPARK_TOKEN'])
     ]
   end
 end
