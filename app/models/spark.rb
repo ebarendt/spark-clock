@@ -23,6 +23,6 @@ class Spark
 
   def uri(command_or_query)
     path = "v1/devices/#{device}/#{command_or_query}"
-    URI.parse("https://api.spark.io/#{path}")
+    URI.parse("https://api.particle.io/#{path}")
   end
 end
