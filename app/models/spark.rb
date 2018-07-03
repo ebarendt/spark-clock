@@ -1,3 +1,5 @@
+require 'net/http'
+
 class Spark
   attr_reader :message
 

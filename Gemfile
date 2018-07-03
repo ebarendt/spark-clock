@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.2.2'
+ruby '2.4.3'
 
-gem 'rails', '4.1.4'
+gem 'rails', '4.2.10'
 gem 'dotenv-rails'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
@@ -19,10 +19,5 @@ group :production do
 end
 
 group :development do
-  gem 'capistrano', require: false
-  gem 'capistrano-bundler', require: false
-  gem 'capistrano-rails', require: false
-  gem 'capistrano-rbenv', require: false
-  gem 'capistrano3-puma', require: false
   gem 'spring'
 end
